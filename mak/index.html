@@ -1,0 +1,1512 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy 8th Monthsary, Mahal!</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --violet-dark: #2e1a47;
+        --violet-mid: #6c3fa8;
+        --violet-light: #b98ee0;
+        --pink-accent: #f6a6e0;
+        --cream: #fff8f5;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(
+          160deg,
+          var(--violet-dark),
+          var(--violet-mid) 60%,
+          var(--violet-light)
+        );
+        color: var(--cream);
+        overflow-x: hidden;
+        min-height: 100vh;
+      }
+
+      h1,
+      h2 {
+        font-family: "Great Vibes", cursive;
+        font-weight: 400;
+      }
+
+      /* ---------- Floating hearts background ---------- */
+
+      #hearts-bg {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+      }
+
+      .heart {
+        position: absolute;
+        bottom: -10%;
+        opacity: 0.7;
+        animation: floatUp linear infinite;
+        font-size: 20px;
+        color: var(--pink-accent);
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 0;
+        }
+
+        10% {
+          opacity: 0.8;
+        }
+
+        100% {
+          transform: translateY(-110vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* ---------- Landing / Cover ---------- */
+
+      #cover {
+        position: fixed;
+        inset: 0;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background:
+          radial-gradient(
+            circle at 50% 35%,
+            rgba(185, 142, 224, 0.45),
+            transparent 35%
+          ),
+          radial-gradient(
+            circle at center,
+            var(--violet-mid),
+            var(--violet-dark)
+          );
+        text-align: center;
+        padding: 20px;
+        transition:
+          opacity 0.8s ease,
+          visibility 0.8s ease;
+        overflow: hidden;
+      }
+
+      #cover::before {
+        content: "";
+        position: absolute;
+        width: 420px;
+        height: 420px;
+        border-radius: 50%;
+        background: rgba(246, 166, 224, 0.08);
+        filter: blur(30px);
+        top: 8%;
+        left: 50%;
+        transform: translateX(-50%);
+        pointer-events: none;
+      }
+
+      /* ---------- Bouquet ---------- */
+
+      .bouquet {
+        position: relative;
+        width: 280px;
+        height: 245px;
+        margin-bottom: 4px;
+        animation: bouquetFloat 4s ease-in-out infinite;
+        z-index: 2;
+      }
+
+      @keyframes bouquetFloat {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-7px);
+        }
+      }
+
+      /* Flowers */
+
+      .flower {
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        filter: drop-shadow(0 7px 8px rgba(0, 0, 0, 0.22));
+      }
+
+      .flower::before {
+        content: "✿";
+        font-size: 68px;
+        line-height: 1;
+      }
+
+      .flower::after {
+        content: "•";
+        position: absolute;
+        font-size: 28px;
+        color: #ffd86b;
+        top: 18px;
+        left: 25px;
+      }
+
+      .flower1 {
+        left: 102px;
+        top: 5px;
+        color: #f7b7e5;
+        transform: rotate(-4deg);
+      }
+
+      .flower2 {
+        left: 47px;
+        top: 42px;
+        color: #d9b2ff;
+        transform: rotate(-20deg);
+      }
+
+      .flower3 {
+        right: 45px;
+        top: 45px;
+        color: #f4c2ed;
+        transform: rotate(18deg);
+      }
+
+      .flower4 {
+        left: 80px;
+        top: 75px;
+        color: #c99bea;
+        transform: rotate(-8deg);
+      }
+
+      .flower5 {
+        right: 78px;
+        top: 78px;
+        color: #efa9db;
+        transform: rotate(10deg);
+      }
+
+      .flower6 {
+        left: 123px;
+        top: 58px;
+        color: #ffffff;
+        transform: scale(0.8);
+      }
+
+      /* Small flowers */
+
+      .small-flower {
+        position: absolute;
+        font-size: 28px;
+        color: #f6c6ef;
+        filter: drop-shadow(0 4px 5px rgba(0, 0, 0, 0.2));
+      }
+
+      .sf1 {
+        left: 20px;
+        top: 95px;
+        transform: rotate(-20deg);
+      }
+
+      .sf2 {
+        right: 18px;
+        top: 100px;
+        transform: rotate(20deg);
+      }
+
+      .sf3 {
+        left: 62px;
+        top: 12px;
+        transform: rotate(-15deg);
+      }
+
+      .sf4 {
+        right: 62px;
+        top: 15px;
+        transform: rotate(15deg);
+      }
+
+      /* Green stems */
+
+      .stem {
+        position: absolute;
+        width: 6px;
+        height: 145px;
+        background: linear-gradient(to bottom, #83a86d, #526f55);
+        border-radius: 10px;
+        transform-origin: top;
+        bottom: 32px;
+        left: 50%;
+      }
+
+      .stem1 {
+        transform: rotate(-27deg);
+      }
+
+      .stem2 {
+        transform: rotate(-12deg);
+      }
+
+      .stem3 {
+        transform: rotate(12deg);
+      }
+
+      .stem4 {
+        transform: rotate(27deg);
+      }
+
+      .stem5 {
+        transform: rotate(0deg);
+      }
+
+      /* Leaves */
+
+      .leaf {
+        position: absolute;
+        width: 43px;
+        height: 20px;
+        background: linear-gradient(135deg, #a8c88b, #587457);
+        border-radius: 100% 0 100% 0;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+      }
+
+      .leaf1 {
+        left: 62px;
+        bottom: 77px;
+        transform: rotate(27deg);
+      }
+
+      .leaf2 {
+        right: 55px;
+        bottom: 83px;
+        transform: rotate(-27deg) scaleX(-1);
+      }
+
+      .leaf3 {
+        left: 105px;
+        bottom: 48px;
+        transform: rotate(8deg);
+      }
+
+      .leaf4 {
+        right: 100px;
+        bottom: 49px;
+        transform: rotate(-8deg) scaleX(-1);
+      }
+
+      /* Bouquet wrapper */
+
+      .bouquet-wrap {
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 145px;
+        height: 75px;
+        background: linear-gradient(135deg, #c98acb, #9c5caa);
+        clip-path: polygon(8% 0, 92% 0, 72% 100%, 28% 100%);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.25);
+        z-index: 5;
+      }
+
+      .bouquet-wrap::before {
+        content: "";
+        position: absolute;
+        width: 70px;
+        height: 15px;
+        background: rgba(255, 255, 255, 0.25);
+        top: 13px;
+        left: 37px;
+        transform: rotate(-7deg);
+        border-radius: 50%;
+      }
+
+      /* Ribbon */
+
+      .ribbon {
+        position: absolute;
+        bottom: 2px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70px;
+        height: 45px;
+        z-index: 6;
+      }
+
+      .ribbon::before,
+      .ribbon::after {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 32px;
+        background: #f6a6e0;
+        top: 2px;
+        border-radius: 70% 20% 70% 20%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.18);
+      }
+
+      .ribbon::before {
+        left: 0;
+        transform: rotate(28deg);
+      }
+
+      .ribbon::after {
+        right: 0;
+        transform: rotate(-28deg);
+      }
+
+      .ribbon-center {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #ffd1ef;
+        left: 25px;
+        top: 10px;
+        z-index: 2;
+      }
+
+      /* Sparkles around bouquet */
+
+      .sparkle {
+        position: absolute;
+        color: #fff;
+        font-size: 20px;
+        animation: sparkle 2s ease-in-out infinite;
+        text-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+      }
+
+      .sparkle1 {
+        top: 15px;
+        left: 12px;
+      }
+
+      .sparkle2 {
+        top: 65px;
+        right: 5px;
+        animation-delay: 0.5s;
+      }
+
+      .sparkle3 {
+        top: 120px;
+        left: 5px;
+        font-size: 14px;
+        animation-delay: 1s;
+      }
+
+      .sparkle4 {
+        top: 125px;
+        right: 15px;
+        font-size: 15px;
+        animation-delay: 1.4s;
+      }
+
+      @keyframes sparkle {
+        0%,
+        100% {
+          opacity: 0.3;
+          transform: scale(0.8);
+        }
+
+        50% {
+          opacity: 1;
+          transform: scale(1.2);
+        }
+      }
+
+      /* Cover Text */
+
+      #cover h1 {
+        font-size: 3.4rem;
+        margin-bottom: 10px;
+        position: relative;
+        z-index: 3;
+        text-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+      }
+
+      #cover p {
+        font-size: 1rem;
+        opacity: 0.88;
+        margin-bottom: 30px;
+        max-width: 340px;
+        line-height: 1.7;
+        position: relative;
+        z-index: 3;
+      }
+
+      /* Little divider */
+
+      .cover-divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin: -4px 0 18px;
+        opacity: 0.9;
+      }
+
+      .cover-divider span {
+        width: 35px;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.5);
+      }
+
+      .cover-divider i {
+        font-style: normal;
+        color: var(--pink-accent);
+      }
+
+      #openBtn {
+        background: linear-gradient(135deg, #f8b5e5, #e88ed1);
+        color: var(--violet-dark);
+        border: none;
+        padding: 14px 38px;
+        border-radius: 40px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow:
+          0 8px 25px rgba(0, 0, 0, 0.3),
+          0 0 20px rgba(246, 166, 224, 0.2);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        position: relative;
+        z-index: 3;
+      }
+
+      #openBtn:hover {
+        transform: scale(1.06);
+        box-shadow:
+          0 12px 30px rgba(0, 0, 0, 0.35),
+          0 0 25px rgba(246, 166, 224, 0.4);
+      }
+
+      #cover.hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      /* ---------- Main content ---------- */
+
+      main {
+        position: relative;
+        z-index: 1;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 60px 20px 100px;
+      }
+
+      section {
+        margin-bottom: 90px;
+        text-align: center;
+      }
+
+      /* Hero / counter */
+
+      .hero h1 {
+        font-size: 3.2rem;
+      }
+
+      .hero p.names {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        margin-top: 8px;
+        opacity: 0.9;
+      }
+
+      .counter {
+        margin-top: 35px;
+        display: flex;
+        justify-content: center;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      .counter div {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(6px);
+        border-radius: 16px;
+        padding: 16px 20px;
+        min-width: 80px;
+      }
+
+      .counter span {
+        display: block;
+        font-size: 1.8rem;
+        font-weight: 700;
+      }
+
+      .counter small {
+        font-size: 0.75rem;
+        opacity: 0.8;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      /* Section titles */
+
+      .section-title {
+        font-size: 2.4rem;
+        margin-bottom: 10px;
+      }
+
+      .section-sub {
+        font-size: 0.9rem;
+        opacity: 0.75;
+        margin-bottom: 40px;
+      }
+
+      /* Album */
+
+      .album {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 16px;
+      }
+
+      .album img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 14px;
+        border: 3px solid rgba(255, 255, 255, 0.25);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+        transition:
+          transform 0.35s ease,
+          box-shadow 0.35s ease;
+        cursor: pointer;
+      }
+
+      .album img:hover {
+        transform: scale(1.04) rotate(-1deg);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Lightbox */
+
+      #lightbox {
+        position: fixed;
+        inset: 0;
+        background: rgba(20, 10, 30, 0.92);
+        z-index: 50;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      #lightbox img {
+        max-width: 90%;
+        max-height: 85vh;
+        border-radius: 12px;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+      }
+
+      #lightbox.active {
+        display: flex;
+      }
+
+      /* Envelope / Letter */
+
+      .envelope-wrap {
+        display: flex;
+        justify-content: center;
+      }
+
+      .envelope {
+        width: 260px;
+        height: 170px;
+        position: relative;
+        cursor: pointer;
+        background: var(--pink-accent);
+        border-radius: 8px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+      }
+
+      .envelope::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-left: 130px solid transparent;
+        border-right: 130px solid transparent;
+        border-top: 90px solid var(--violet-light);
+        transform-origin: top;
+        transition: transform 0.6s ease;
+        z-index: 2;
+      }
+
+      .envelope.open::before {
+        transform: rotateX(180deg);
+      }
+
+      .envelope span {
+        position: absolute;
+        bottom: 14px;
+        width: 100%;
+        text-align: center;
+        font-size: 0.85rem;
+        color: var(--violet-dark);
+        font-weight: 600;
+      }
+
+      .letter {
+        max-width: 520px;
+        margin: 30px auto 0;
+        background: var(--cream);
+        color: #3a2050;
+        border-radius: 14px;
+        padding: 35px 30px;
+        text-align: left;
+        font-size: 1rem;
+        line-height: 1.8;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        display: none;
+      }
+
+      .letter p {
+        margin: 0 0 18px;
+      }
+
+      .letter p:last-child {
+        margin-bottom: 0;
+      }
+
+      .letter.show {
+        display: block;
+        animation: fadeIn 1s ease;
+      }
+
+      .letter .signature {
+        font-family: "Great Vibes", cursive;
+        font-size: 1.6rem;
+        margin-top: 20px;
+        display: block;
+        color: var(--violet-mid);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(15px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* =========================================================
+         GIFT BOX SURPRISE
+         Added below the envelope and letter
+         ========================================================= */
+
+      .gift-section {
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .gift-section h2 {
+        font-size: 2.4rem;
+        margin-bottom: 10px;
+      }
+
+      .gift-sub {
+        font-size: 0.9rem;
+        opacity: 0.75;
+        margin-bottom: 35px;
+      }
+
+      .gift-area {
+        position: relative;
+        width: 340px;
+        height: 410px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+      }
+
+      /* Gift box */
+
+      .gift-box {
+        position: relative;
+        width: 170px;
+        height: 140px;
+        cursor: pointer;
+        z-index: 5;
+        transition:
+          transform 0.4s ease,
+          opacity 0.7s ease;
+      }
+
+      .gift-box:hover {
+        transform: translateY(-6px) scale(1.03);
+      }
+
+      .gift-box.hidden {
+        opacity: 0;
+        transform: scale(0.75);
+      }
+
+      .gift-bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 170px;
+        height: 105px;
+        background: linear-gradient(135deg, #9c55c9, #7137a0);
+        border-radius: 8px 8px 14px 14px;
+        box-shadow:
+          0 15px 30px rgba(0, 0, 0, 0.35),
+          0 0 20px rgba(246, 166, 224, 0.15);
+        overflow: hidden;
+      }
+
+      .gift-bottom::before {
+        content: "";
+        position: absolute;
+        width: 28px;
+        height: 100%;
+        left: 71px;
+        background: #f6a6e0;
+      }
+
+      .gift-bottom::after {
+        content: "";
+        position: absolute;
+        height: 22px;
+        width: 100%;
+        top: 38px;
+        left: 0;
+        background: #f6a6e0;
+      }
+
+      /* Gift lid */
+
+      .gift-lid {
+        position: absolute;
+        width: 185px;
+        height: 35px;
+        left: -7px;
+        top: 10px;
+        background: linear-gradient(135deg, #b86bdd, #8243b1);
+        border-radius: 7px;
+        z-index: 4;
+        box-shadow: 0 7px 12px rgba(0, 0, 0, 0.25);
+        transition:
+          transform 0.8s ease,
+          top 0.8s ease;
+      }
+
+      .gift-lid::before {
+        content: "";
+        position: absolute;
+        width: 30px;
+        height: 35px;
+        left: 77px;
+        background: #f6a6e0;
+      }
+
+      /* Gift ribbon */
+
+      .gift-ribbon {
+        position: absolute;
+        z-index: 6;
+        width: 70px;
+        height: 40px;
+        left: 50px;
+        top: -10px;
+      }
+
+      .gift-ribbon::before,
+      .gift-ribbon::after {
+        content: "";
+        position: absolute;
+        width: 38px;
+        height: 28px;
+        background: #f6a6e0;
+        border-radius: 60% 30% 60% 30%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .gift-ribbon::before {
+        left: 0;
+        transform: rotate(30deg);
+      }
+
+      .gift-ribbon::after {
+        right: 0;
+        transform: rotate(-30deg);
+      }
+
+      .ribbon-knot {
+        position: absolute;
+        width: 19px;
+        height: 19px;
+        border-radius: 50%;
+        background: #ffd2ee;
+        left: 25px;
+        top: 8px;
+        z-index: 3;
+      }
+
+      /* Open gift */
+
+      .gift-box.open .gift-lid {
+        transform: rotate(-18deg) translate(-35px, -75px);
+        top: 0;
+      }
+
+      .gift-box.open {
+        cursor: default;
+      }
+
+      /* Flower petals */
+
+      .petals {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 8;
+        overflow: visible;
+      }
+
+      .petal {
+        position: absolute;
+        left: 50%;
+        top: 48%;
+        font-size: 25px;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+      }
+
+      .gift-box.open ~ .petals .petal {
+        animation: petalBurst 2.5s ease-out forwards;
+      }
+
+      .petal:nth-child(1) {
+        --x: -120px;
+        --y: -150px;
+        animation-delay: 0s;
+      }
+
+      .petal:nth-child(2) {
+        --x: 110px;
+        --y: -170px;
+        animation-delay: 0.1s;
+      }
+
+      .petal:nth-child(3) {
+        --x: -80px;
+        --y: -190px;
+        animation-delay: 0.2s;
+      }
+
+      .petal:nth-child(4) {
+        --x: 80px;
+        --y: -130px;
+        animation-delay: 0.25s;
+      }
+
+      .petal:nth-child(5) {
+        --x: -145px;
+        --y: -70px;
+        animation-delay: 0.35s;
+      }
+
+      .petal:nth-child(6) {
+        --x: 145px;
+        --y: -80px;
+        animation-delay: 0.4s;
+      }
+
+      .petal:nth-child(7) {
+        --x: -40px;
+        --y: -220px;
+        animation-delay: 0.15s;
+      }
+
+      .petal:nth-child(8) {
+        --x: 35px;
+        --y: -180px;
+        animation-delay: 0.3s;
+      }
+
+      @keyframes petalBurst {
+        0% {
+          opacity: 0;
+          transform: translate(-50%, -50%) scale(0.3) rotate(0deg);
+        }
+
+        15% {
+          opacity: 1;
+        }
+
+        70% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+          transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y)))
+            scale(1.1) rotate(260deg);
+        }
+      }
+
+      /* Final surprise */
+
+      .final-surprise {
+        position: absolute;
+        bottom: 5px;
+        left: 50%;
+        width: 300px;
+        transform: translateX(-50%) scale(0.7);
+        opacity: 0;
+        pointer-events: none;
+        z-index: 10;
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
+      }
+
+      .final-surprise.show {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+        pointer-events: auto;
+      }
+
+      .surprise-card {
+        background: rgba(255, 248, 245, 0.97);
+        color: #3a2050;
+        border-radius: 24px;
+        padding: 22px 15px 20px;
+        box-shadow:
+          0 18px 40px rgba(0, 0, 0, 0.35),
+          0 0 25px rgba(246, 166, 224, 0.25);
+      }
+
+      .surprise-title {
+        font-family: "Great Vibes", cursive;
+        color: var(--violet-mid);
+        font-size: 2rem;
+        margin-bottom: 5px;
+      }
+
+      .surprise-items {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 18px;
+        margin-top: 12px;
+      }
+
+      /* Cute stuffed toy */
+
+      .teddy {
+        font-size: 90px;
+        filter: drop-shadow(0 8px 8px rgba(0, 0, 0, 0.2));
+        animation: teddyBounce 2s ease-in-out infinite;
+      }
+
+      @keyframes teddyBounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-7px);
+        }
+      }
+
+      /* Chocolates */
+
+      .chocolates {
+        display: flex;
+        gap: 4px;
+        align-items: flex-end;
+      }
+
+      .chocolate {
+        font-size: 38px;
+        filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.2));
+      }
+
+      .surprise-message {
+        margin-top: 12px;
+        font-size: 0.82rem;
+        opacity: 0.75;
+      }
+
+      /* Music control */
+
+      #musicToggle {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 20;
+        background: var(--pink-accent);
+        color: var(--violet-dark);
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        font-size: 1.3rem;
+        cursor: pointer;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+      }
+
+      footer {
+        text-align: center;
+        padding: 30px;
+        opacity: 0.7;
+        font-size: 0.85rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* ---------- Mobile ---------- */
+
+      @media (max-width: 600px) {
+        #cover h1 {
+          font-size: 2.8rem;
+        }
+
+        #cover p {
+          font-size: 0.9rem;
+          max-width: 300px;
+        }
+
+        .bouquet {
+          transform: scale(0.88);
+          margin-bottom: -8px;
+        }
+
+        .hero h1 {
+          font-size: 2.7rem;
+        }
+
+        .gift-area {
+          width: 310px;
+          height: 390px;
+        }
+
+        .final-surprise {
+          width: 285px;
+        }
+
+        .teddy {
+          font-size: 75px;
+        }
+
+        .chocolate {
+          font-size: 32px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="hearts-bg"></div>
+
+    <!-- Cover / Landing -->
+
+    <div id="cover">
+      <!-- Bouquet -->
+
+      <div class="bouquet">
+        <!-- Stems -->
+
+        <div class="stem stem1"></div>
+        <div class="stem stem2"></div>
+        <div class="stem stem3"></div>
+        <div class="stem stem4"></div>
+        <div class="stem stem5"></div>
+
+        <!-- Leaves -->
+
+        <div class="leaf leaf1"></div>
+        <div class="leaf leaf2"></div>
+        <div class="leaf leaf3"></div>
+        <div class="leaf leaf4"></div>
+
+        <!-- Main Flowers -->
+
+        <div class="flower flower1"></div>
+        <div class="flower flower2"></div>
+        <div class="flower flower3"></div>
+        <div class="flower flower4"></div>
+        <div class="flower flower5"></div>
+        <div class="flower flower6"></div>
+
+        <!-- Small Flowers -->
+
+        <div class="small-flower sf1">✿</div>
+        <div class="small-flower sf2">✿</div>
+        <div class="small-flower sf3">✿</div>
+        <div class="small-flower sf4">✿</div>
+
+        <!-- Sparkles -->
+
+        <div class="sparkle sparkle1">✦</div>
+        <div class="sparkle sparkle2">✧</div>
+        <div class="sparkle sparkle3">✦</div>
+        <div class="sparkle sparkle4">✧</div>
+
+        <!-- Bouquet Wrapper -->
+
+        <div class="bouquet-wrap"></div>
+
+        <!-- Ribbon -->
+
+        <div class="ribbon">
+          <div class="ribbon-center"></div>
+        </div>
+      </div>
+
+      <h1>For My Mahal</h1>
+
+      <div class="cover-divider">
+        <span></span>
+        <i>♡</i>
+        <span></span>
+      </div>
+
+      <p>
+        Tap mo po yung open. I hope you like it. I love you so much, Mahal.
+        Thank you for being my everything.
+      </p>
+
+      <p>
+        <button id="openBtn">Open ✨</button>
+      </p>
+    </div>
+
+    <!-- Background music -->
+
+    <audio id="bgMusic" loop>
+      <source src="music/song.mp3" type="audio/mpeg" />
+    </audio>
+
+    <button id="musicToggle">🎵</button>
+
+    <main>
+      <!-- Hero + Counter -->
+
+      <section class="hero">
+        <h1>Happy Eight Monthsary, Mahal</h1>
+        <p class="names">Xyrin & Jemark</p>
+
+        <div class="counter" id="counter">
+          <div>
+            <span id="days">242</span>
+            <small>Days</small>
+          </div>
+
+          <div>
+            <span id="hours">5,808</span>
+            <small>Hours</small>
+          </div>
+
+          <div>
+            <span id="minutes">348,480</span>
+            <small>Minutes</small>
+          </div>
+
+          <div>
+            <span id="seconds">20,908,800</span>
+            <small>Seconds</small>
+          </div>
+        </div>
+      </section>
+
+      <!-- Photo Album -->
+
+      <section>
+        <h2 class="section-title">Our Little Album</h2>
+
+        <p class="section-sub">A few of my favorite moments with you</p>
+
+        <div class="album" id="album">
+          <img src="image/photo1.jpg" alt="memory 1" />
+          <img src="image/photo2.jpg" alt="memory 2" />
+          <img src="image/photo3.jpg" alt="memory 3" />
+          <img src="image/photo4.jpg" alt="memory 4" />
+        </div>
+      </section>
+
+      <!-- Letter -->
+
+      <section>
+        <h2 class="section-title">A Letter For You Mahal</h2>
+
+        <p class="section-sub">Click the envelope to open it</p>
+
+        <div class="envelope-wrap">
+          <div class="envelope" id="envelope">
+            <span>Click Me 💌</span>
+          </div>
+        </div>
+
+        <div class="letter" id="letter">
+          <p>
+            Thank you for these 8 months na magkasama tayo. I'm really thankful
+            na dumating ka sa buhay ko, and I'm happy na ikaw yung taong
+            nakakasama ko sa journey na 'to. Thank you sa love, care, patience,
+            and understanding mo, kahit minsan hindi tayo nagkakaintindihan or
+            may mga bagay na hindi natin napagkakasunduan.
+          </p>
+
+          <p>
+            I know hindi naman palaging perfect ang relationship natin, pero I'm
+            glad na hanggang ngayon, nandito pa rin tayo, patuloy na pinipili
+            ang isa't isa. Thank you for staying and for making me happy in your
+            own little ways. I appreciate everything you do for me, kahit yung
+            mga simpleng bagay na minsan hindi ko na napapansin.
+          </p>
+
+          <p>
+            I hope na mas marami pa tayong months and years na pagsasamahan. I
+            want to make more memories with you, laugh with you, and be there
+            for you through good and bad days. I may not always be the best
+            boyfriend, pero I'll do my best to understand you more, love you
+            better, and make you feel how important you are to me.
+          </p>
+
+          <p>
+            Thank you for being part of my life, Mahal. I'm proud of us and of
+            how far we've come. Sana kahit may challenges na dumating, we will
+            always find a way to understand each other and work things out
+            together.
+          </p>
+
+          <p>
+            Happy 8th monthsary ulit, Mahal! I love you so much, and I'm looking
+            forward sa marami pa nating monthsaries together. Always remember na
+            special ka sa akin, and I'm so lucky to have you. I love you, Mahal!
+          </p>
+
+          <p>
+            <span class="signature">— Jemark</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           GIFT SURPRISE
+           This is directly below the letter
+           ===================================================== -->
+
+      <section class="gift-section">
+        <h2>A Little Surprise For You</h2>
+
+        <p class="gift-sub">
+          Because you deserve all the little things that make you smile.
+        </p>
+
+        <div class="gift-area" id="giftArea">
+          <!-- Gift Box -->
+
+          <div class="gift-box" id="giftBox">
+            <div class="gift-lid">
+              <div class="gift-ribbon">
+                <div class="ribbon-knot"></div>
+              </div>
+            </div>
+
+            <div class="gift-bottom"></div>
+          </div>
+
+          <!-- Flower Petals -->
+
+          <div class="petals">
+            <span class="petal">🌸</span>
+            <span class="petal">🌷</span>
+            <span class="petal">🌸</span>
+            <span class="petal">🌹</span>
+            <span class="petal">🌸</span>
+            <span class="petal">🌷</span>
+            <span class="petal">🌸</span>
+            <span class="petal">🌹</span>
+          </div>
+
+          <!-- Final Surprise -->
+
+          <div class="final-surprise" id="finalSurprise">
+            <div class="surprise-card">
+              <div class="surprise-title">A Little Something For You</div>
+
+              <div class="surprise-items">
+                <!-- Stuffed toy -->
+
+                <div class="teddy">🧸</div>
+
+                <!-- Chocolates -->
+
+                <div class="chocolates">
+                  <span class="chocolate">🍫</span>
+                  <span class="chocolate">🍫</span>
+                </div>
+              </div>
+
+              <p class="surprise-message">
+                A cute little friend and some chocolates, just for you. 🌷🍫
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Made with love for the one who makes every day feel like a monthsary.
+    </footer>
+
+    <!-- Lightbox -->
+
+    <div id="lightbox">
+      <img id="lightboxImg" src="" />
+    </div>
+
+    <script>
+      // Cover -> open site and start music from the user's click
+
+      const cover = document.getElementById("cover");
+      const openBtn = document.getElementById("openBtn");
+      const music = document.getElementById("bgMusic");
+      const musicToggle = document.getElementById("musicToggle");
+
+      openBtn.addEventListener("click", async () => {
+        cover.classList.add("hidden");
+
+        try {
+          await music.play();
+          musicToggle.textContent = "🔊";
+        } catch (error) {
+          console.error("Unable to play background music:", error);
+        }
+      });
+
+      musicToggle.addEventListener("click", async () => {
+        if (music.paused) {
+          try {
+            await music.play();
+            musicToggle.textContent = "🔊";
+          } catch (error) {
+            console.error("Unable to play background music:", error);
+          }
+        } else {
+          music.pause();
+          musicToggle.textContent = "🔇";
+        }
+      });
+
+      // Envelope open
+
+      const envelope = document.getElementById("envelope");
+      const letter = document.getElementById("letter");
+
+      envelope.addEventListener("click", () => {
+        envelope.classList.toggle("open");
+        letter.classList.toggle("show");
+      });
+
+      // =====================================================
+      // Gift Box Surprise
+      // =====================================================
+
+      const giftBox = document.getElementById("giftBox");
+      const finalSurprise = document.getElementById("finalSurprise");
+
+      giftBox.addEventListener("click", () => {
+        // Open the gift box
+
+        giftBox.classList.add("open");
+
+        // Prevent clicking it again
+
+        giftBox.style.pointerEvents = "none";
+
+        // Let the petals appear first
+
+        setTimeout(() => {
+          giftBox.classList.add("hidden");
+        }, 1800);
+
+        // Show stuffed toy and chocolates after petals
+
+        setTimeout(() => {
+          finalSurprise.classList.add("show");
+        }, 2500);
+      });
+
+      // Lightbox
+
+      const album = document.getElementById("album");
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightboxImg");
+
+      album.addEventListener("click", (e) => {
+        if (e.target.tagName === "IMG") {
+          lightboxImg.src = e.target.src;
+          lightbox.classList.add("active");
+        }
+      });
+
+      lightbox.addEventListener("click", () =>
+        lightbox.classList.remove("active"),
+      );
+
+      // Floating hearts background
+
+      const heartsBg = document.getElementById("hearts-bg");
+
+      function createHeart() {
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        heart.textContent = ["💜", "✨", "💗", "🤍"][
+          Math.floor(Math.random() * 4)
+        ];
+
+        heart.style.left = Math.random() * 100 + "vw";
+
+        heart.style.animationDuration = 6 + Math.random() * 6 + "s";
+
+        heart.style.fontSize = 14 + Math.random() * 14 + "px";
+
+        heartsBg.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 12000);
+      }
+
+      setInterval(createHeart, 600);
+    </script>
+  </body>
+</html>
